@@ -68,14 +68,19 @@
 ---
 
 ## 📁 Project Structure
+## 📁 Project Structure
+
+```text
+.
 ├── app/
 ├── Dockerfile
 ├── Jenkinsfile
 ├── k8s-manifests/
-│ ├── deployment.yaml
-│ ├── service.yaml
-│ └── ingress.yaml
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   └── ingress.yaml
 └── README.md
+```
 
 ---
 
@@ -92,23 +97,27 @@
 ---
 
 ## 📊 Pipeline Flow (Visual)
+## 📊 Pipeline Flow
+
+```text
 [ Developer ]
-↓
+      ↓
 [ GitHub ]
-↓
+      ↓
 [ Jenkins CI ]
-↓
+      ↓
 [ Docker Build ]
-↓
+      ↓
 [ Docker Registry ]
-↓
+      ↓
 [ GitOps Repo ]
-↓
+      ↓
 [ ArgoCD ]
-↓
+      ↓
 [ Kubernetes ]
-↓
+      ↓
 [ Ingress → Users ]
+```
 
 ---
 
