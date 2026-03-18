@@ -67,8 +67,15 @@
 
 ---
 
-## 📁 Project Structure (Example)
-
+## 📁 Project Structure
+├── app/
+├── Dockerfile
+├── Jenkinsfile
+├── k8s-manifests/
+│ ├── deployment.yaml
+│ ├── service.yaml
+│ └── ingress.yaml
+└── README.md
 
 ---
 
@@ -85,7 +92,23 @@
 ---
 
 ## 📊 Pipeline Flow (Visual)
-
+[ Developer ]
+↓
+[ GitHub ]
+↓
+[ Jenkins CI ]
+↓
+[ Docker Build ]
+↓
+[ Docker Registry ]
+↓
+[ GitOps Repo ]
+↓
+[ ArgoCD ]
+↓
+[ Kubernetes ]
+↓
+[ Ingress → Users ]
 
 ---
 
