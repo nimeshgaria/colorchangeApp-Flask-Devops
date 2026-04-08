@@ -1,7 +1,11 @@
 from flask import Flask, render_template_string
+from prometheus_client import Counter, generate_latest
 import random
 
 app = Flask(__name__)
+
+# Prometheus metric
+REQUEST_COUNT = Counter('request_count', 'Total Requests')
 
 colors = [
     "#FF5733",
@@ -44,10 +48,18 @@ html_template = """
 </html>
 """
 
+# ✅ Single route handling both UI + metrics count
 @app.route("/")
 def home():
+    REQUEST_COUNT.inc()
     color = random.choice(colors)
     return render_template_string(html_template, color=color)
+
+# ✅ Prometheus endpoint
+@app.route('/metrics')
+def metrics():
+    return generate_latest(), 200, {'Content-Type': 'text/plain'}
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
